@@ -135,7 +135,35 @@ Configure compiler plugin-in in maven
 
 Default scala libraries would be 2.11.8. To remove incompatible class version it must be 2.10.6. 
 To change scala version 
-On right click 
+Right click on "Scala Library Container" -> Build Path -> Configure Build Path -> Edit and select Latest 2.10 Bundle
+
+Run As Scala Program
+
+
+
+It must work like a charm.
+
+If you get this error
+
+WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+
+That means, your spark worker is not working. You must need a worker to do work. http://stackoverflow.com/a/35663422/1733158
+
+
+If you get error java.lang.ClassNotFoundException: HelloSpark$$anonfun$1
+Read
+http://stackoverflow.com/a/33245734/1733158
+
+Note "local[*]" in val conf = new SparkConf().setAppName("accesslog").setMaster("local[*]").set("total-executor-cores","1");
+do not use "spark://XXXX.local:7077"
+
+Also refer 
+http://www.datastax.com/dev/blog/common-spark-troubleshooting
+
+
+
+
+
 //how to setup in AWS http://blog.insightdatalabs.com/spark-cluster-step-by-step/
 
 
