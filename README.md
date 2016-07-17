@@ -80,7 +80,7 @@ object AccessLog {
   def main(args: Array[String]): Unit = {
     println("Hello, world!")
     
-    val conf = new SparkConf().setAppName("accesslog").setMaster("local[*]").set("total-executor-cores","1");;
+    val conf = new SparkConf().setAppName("accesslog").setMaster("local[*]");
     val sc = new SparkContext(conf)
     
     val data = Array(1, 2, 3, 4, 5);
@@ -154,7 +154,7 @@ If you get error java.lang.ClassNotFoundException: HelloSpark$$anonfun$1
 Read
 http://stackoverflow.com/a/33245734/1733158
 
-Note "local[*]" in val conf = new SparkConf().setAppName("accesslog").setMaster("local[*]").set("total-executor-cores","1");
+Note "local[*]" in val conf = new SparkConf().setAppName("accesslog").setMaster("local[*]");
 do not use "spark://XXXX.local:7077"
 
 Also refer 
